@@ -42,8 +42,45 @@
 .calculatorTitle {
   font-family: "Manrope-ExtraBold";
   color: #191b73;
-  font-size: 25px !important;
+  font-size: 25px;
 }
 .calculatorRow {
   text-align: center !important;
+  padding: 10px;
+}
+.inputRow {
+  text-align: center !important;
+  padding: 10px;
+}
+.formField {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.qtyDetails {
+  font-family: "Manrope-ExtraBold";
+  color: #8b8d9b;
+}
+.infoTextColor {
+  color: #191b73;
+  font-family: "Manrope-ExtraBold";
+}
+.dialogHeader {
+  padding: 20px;
+  font-family: "Manrope-ExtraBold";
+  color: #191b73;
+}
+.iconImage {
+  text-align: center !important;
+  margin-left: 25%;
+  margin-top: -20px;
+}
+.priceMessage {
+  padding: 20px;
+  font-family: "Manrope-bold";
+  color: #191b73;
+}
+.price {
+  color: red;
+  font-family: "Manrope-ExtraBold";
+  font-size: 20px;
 }
