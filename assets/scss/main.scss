@@ -1,0 +1,49 @@
+@import "font.scss";
+
+* {
+  font-family: "Manrope-Regular";
+}
+
+.index-active-class {
+  background-color: #191b73;
+}
+.index-active-class .nav-title {
+  color: #ffffff !important;
+}
+.index-nav-class {
+  border-radius: 10px !important;
+  padding-left: 20px !important;
+}
+.priceCardTitle {
+  font-family: "Manrope-Bold";
+  font-size: 18px !important;
+}
+.priceCardPriceTag {
+  font-family: "Manrope-ExtraBold";
+  font-size: 35px !important;
+  color: #191b73;
+}
+.discuontMessage {
+  font-size: 12px;
+  color: #db0404;
+  position: absolute;
+  right: 20px;
+}
+.addToCartBtn {
+  width: 100px !important;
+  text-align: center;
+}
+.priceSection {
+  padding-left: 45px;
+}
+.calculatorTitleRow {
+  text-align: center !important;
+}
+.calculatorTitle {
+  font-family: "Manrope-ExtraBold";
+  color: #191b73;
+  font-size: 25px !important;
+}
+.calculatorRow {
+  text-align: center !important;
+}
