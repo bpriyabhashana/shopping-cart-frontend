@@ -3,20 +3,18 @@
     <v-col>
       <v-row class="mt-10" justify="center">
         <!-- ---------------- Penguin-ears Card ---------------- -->
-        <v-col>
+        <v-col v-for="(item, index) in allItems" :key="index">
           <v-card elevation="5" class="mx-auto" width="100%" min-height="175px">
             <v-list-item>
               <v-list-item-avatar size="50" style="border: 1px solid #191b73">
-                <v-img
-                  src="https://png.pngtree.com/template/20190716/ourlarge/pngtree-illustration-penguin-cute-icon-logo-vector-animals-image_228229.jpg"
-                ></v-img>
+                <v-img :src="item.imageUrl"></v-img>
               </v-list-item-avatar>
               <v-list-item-content>
                 <v-list-item-title class="priceCardTitle">
-                  Penguin-ears
+                  {{ item.productId }}
                 </v-list-item-title>
                 <v-list-item-subtitle>
-                  A carton contains 20 units
+                  A carton contains {{ item.cartonAmount }} units
                 </v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
@@ -26,7 +24,7 @@
                   <v-list-item-action>
                     <div class="priceSection">
                       <v-list-item-title class="priceCardPriceTag"
-                        >$ 175</v-list-item-title
+                        >$ {{ item.cartonPrice }}</v-list-item-title
                       >
                       <v-list-item-subtitle
                         >For one carton</v-list-item-subtitle
@@ -49,7 +47,7 @@
           </v-card>
         </v-col>
         <!-- ---------------- Horseshoe Card ---------------- -->
-        <v-col>
+        <!-- <v-col>
           <v-card elevation="5" class="mx-auto" width="100%" min-height="175px">
             <v-list-item>
               <v-list-item-avatar size="50" style="border: 1px solid #191b73">
@@ -93,8 +91,9 @@
               Buy 3+ cartons & get 10% Discount
             </div>
           </v-card>
-        </v-col>
+        </v-col> -->
       </v-row>
+      {{ allItems }}
       <!-- -------------------- price table ------------ -->
 
       <v-row class="mt-10" justify="center">
@@ -140,6 +139,7 @@
 <script>
 import Logo from "~/components/Logo.vue";
 import VuetifyLogo from "~/components/VuetifyLogo.vue";
+import { mapState } from "vuex";
 
 export default {
   layout: "layout_index",
@@ -192,6 +192,14 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    ...mapState({
+      allItems: state => state.price.allItems
+    })
+  },
+  mounted() {
+    this.$store.dispatch("price/getAllItems");
   }
 };
 </script>

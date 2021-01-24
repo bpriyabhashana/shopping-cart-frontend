@@ -125,7 +125,7 @@
             ></v-img>
           </div>
           <div class="text-center ">
-            <table style="width:100%; color: #808292">
+            <table style="width:100%; color: #11152D">
               <tr>
                 <th style="width: 30%"></th>
                 <th style="width: 30%">Carton</th>
