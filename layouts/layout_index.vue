@@ -3,7 +3,7 @@
     <v-main>
       <v-row>
         <v-col>
-          <div style="width: 25%; float: left; height: 100vh">
+          <div style="width: 25%; float: left; height: 100vh; position: fixed">
             <v-navigation-drawer min-height="100vh" permanent>
               <v-list-item>
                 <v-list-item-avatar size="70" style="border: 1px solid #191b73">
@@ -43,7 +43,9 @@
               </v-list>
             </v-navigation-drawer>
           </div>
-          <div style="width: 70%; float: left"><nuxt /></div>
+          <div style="width: 75%; float: right; padding-right: 5%">
+            <nuxt />
+          </div>
         </v-col>
       </v-row>
     </v-main>

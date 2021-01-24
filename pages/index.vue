@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center" align="center">
     <v-col>
-      <v-row class="mt-10" justify="center">
+      <v-row class="mt-10 " justify="center">
         <!-- ---------------- Price Card ---------------- -->
         <v-col v-for="(item, index) in allItems" :key="index">
           <v-card elevation="5" class="mx-auto" width="100%" min-height="175px">
@@ -60,7 +60,7 @@
             <v-simple-table
               style="padding: 25px !important"
               fixed-header
-              height="400px"
+              height="600px"
             >
               <template v-slot:default>
                 <thead>
