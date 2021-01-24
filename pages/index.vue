@@ -52,6 +52,11 @@
       <v-row class="mt-10" justify="center">
         <v-col>
           <v-card elevation="5" class="mx-auto" width="100%" min-height="165px">
+            <v-row class="calculatorTitleRow">
+              <v-col class="calculatorTitle">
+                Price table
+              </v-col>
+            </v-row>
             <v-simple-table
               style="padding: 25px !important"
               fixed-header
@@ -60,22 +65,22 @@
               <template v-slot:default>
                 <thead>
                   <tr>
-                    <th class="text-left">
+                    <th class="text-center">
                       Units
                     </th>
-                    <th class="text-left">
+                    <th class="text-center">
                       Penguin-ears ($)
                     </th>
-                    <th class="text-left">
+                    <th class="text-center">
                       Horseshoe ($)
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for="(item, index) in tableItems" :key="index">
-                    <td>{{ item.amount }}</td>
-                    <td>{{ item.pricePenguin }}</td>
-                    <td>{{ item.priceHorse }}</td>
+                    <td class="text-center">{{ item.amount }}</td>
+                    <td class="text-center">{{ item.pricePenguin }}</td>
+                    <td class="text-center">{{ item.priceHorse }}</td>
                   </tr>
                 </tbody>
               </template>
