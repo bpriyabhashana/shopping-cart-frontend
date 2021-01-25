@@ -34,7 +34,7 @@
                   <v-list-item-content>
                     <div class="addToCartBtn">
                       <v-btn outlined color="#191B73" to="/shopping-cart"
-                        >Add to Cart</v-btn
+                        >Let's Try</v-btn
                       >
                     </div>
                   </v-list-item-content>
