@@ -54,37 +54,15 @@
           <v-card elevation="5" class="mx-auto" width="100%" min-height="165px">
             <v-row class="calculatorTitleRow">
               <v-col class="calculatorTitle">
-                Price table
+                Price Section
               </v-col>
             </v-row>
-            <v-simple-table
-              style="padding: 25px !important"
-              fixed-header
-              height="600px"
-            >
-              <template v-slot:default>
-                <thead>
-                  <tr>
-                    <th class="text-center">
-                      Units
-                    </th>
-                    <th class="text-center">
-                      Penguin-ears ($)
-                    </th>
-                    <th class="text-center">
-                      Horseshoe ($)
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(item, index) in tableItems" :key="index">
-                    <td class="text-center">{{ item.amount }}</td>
-                    <td class="text-center">{{ item.pricePenguin }}</td>
-                    <td class="text-center">{{ item.priceHorse }}</td>
-                  </tr>
-                </tbody>
-              </template>
-            </v-simple-table>
+            <v-tabs slider-color="#0c0c5a" slider-size="3">
+              <v-tab>Table View</v-tab>
+              <v-tab>Chart View</v-tab>
+              <v-tab-item> <Table /> </v-tab-item>
+              <v-tab-item> <ChartView /></v-tab-item>
+            </v-tabs>
           </v-card>
         </v-col>
       </v-row>
@@ -104,60 +82,15 @@ export default {
     VuetifyLogo
   },
   data() {
-    return {
-      desserts: [
-        {
-          name: "Frozen Yogurt",
-          calories: 159
-        },
-        {
-          name: "Ice cream sandwich",
-          calories: 237
-        },
-        {
-          name: "Eclair",
-          calories: 262
-        },
-        {
-          name: "Cupcake",
-          calories: 305
-        },
-        {
-          name: "Gingerbread",
-          calories: 356
-        },
-        {
-          name: "Jelly bean",
-          calories: 375
-        },
-        {
-          name: "Lollipop",
-          calories: 392
-        },
-        {
-          name: "Honeycomb",
-          calories: 408
-        },
-        {
-          name: "Donut",
-          calories: 452
-        },
-        {
-          name: "KitKat",
-          calories: 518
-        }
-      ]
-    };
+    return {};
   },
   computed: {
     ...mapState({
-      allItems: state => state.price.allItems,
-      tableItems: state => state.price.tableItems
+      allItems: state => state.price.allItems
     })
   },
   mounted() {
     this.$store.dispatch("price/getAllItems");
-    this.$store.dispatch("price/getTableItems");
   }
 };
 </script>
