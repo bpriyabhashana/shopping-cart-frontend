@@ -5,10 +5,11 @@
 }
 
 .index-active-class {
-  background-color: #191b73;
+  // background-color: #191b73;
+  border: #191b73 1px solid;
 }
 .index-active-class .nav-title {
-  color: #ffffff !important;
+  color: #191b73 !important;
 }
 .index-nav-class {
   border-radius: 10px !important;

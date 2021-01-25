@@ -21,7 +21,7 @@
               <v-list class="mt-6" nav>
                 <v-list-item
                   class="index-nav-class"
-                  color="#ffffff"
+                  color="#191b73"
                   active-class="index-active-class"
                   v-for="item in items"
                   :key="item.title"
