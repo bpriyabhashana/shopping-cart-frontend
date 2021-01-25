@@ -94,16 +94,24 @@
                   >
                 </v-col>
               </v-row>
+              <v-row
+                v-if="!penguin && !horse"
+                justify="center"
+                align="center"
+                class="mb-5"
+              >
+                <span>What do you need? Just tell us.</span>
+              </v-row>
               <v-row justify="center" align="center" class="mb-5">
-                <span v-if="!penguin && !horse"
-                  >What do you need? Just tell us.</span
-                >
                 <v-btn
                   :disabled="!penguin && !horse"
-                  dark
                   depressed
+                  style="color: #ffffff"
                   color="#191B73"
-                  @click="priceDialog = true"
+                  @click="
+                    priceDialog = true;
+                    getCartPrice();
+                  "
                   >Proceed</v-btn
                 >
               </v-row>
@@ -112,7 +120,7 @@
         </v-col>
       </v-row>
       <!-- ---------------- price dialog ------------ -->
-      <v-dialog v-model="priceDialog" width="400">
+      <v-dialog v-model="priceDialog" width="500">
         <v-card>
           <div class="lighten-2 dialogHeader">
             Price summary for your cart
@@ -125,33 +133,64 @@
             ></v-img>
           </div>
           <div class="text-center ">
-            <table style="width:100%; color: #11152D">
+            <table style="width:100%; color: #11152D; padding: 20px">
               <tr>
-                <th style="width: 30%"></th>
-                <th style="width: 30%">Carton</th>
-                <th style="width: 30%">Units</th>
+                <th class="text-left" style="width: 30%"></th>
+                <th style="width: 20%">Carton</th>
+                <th style="width: 20%">Units</th>
+                <th style="width: 20%">Price</th>
               </tr>
               <tr>
-                <th>Penguin-ears</th>
+                <th class="text-left">Penguin-ears</th>
                 <td>{{ penguinCartons }}</td>
                 <td>{{ penguinUnits }}</td>
+                <td>${{ cartPrice.penguinTotalPrice }}</td>
               </tr>
               <tr>
-                <th>Horseshoe</th>
+                <th class="text-left">Horseshoe</th>
                 <td>{{ horseCartons }}</td>
                 <td>{{ horseUnits }}</td>
+                <td>${{ cartPrice.horseTotalPrice }}</td>
+              </tr>
+              <tr>
+                <th class="text-left">Total</th>
+                <td></td>
+                <td></td>
+                <th>
+                  <v-text-field
+                    solo
+                    dense
+                    flat
+                    outlined
+                    background-color="#c8c9ce"
+                    :value="'$' + cartPrice.totalCartPrice"
+                    readonly
+                  ></v-text-field>
+                </th>
               </tr>
             </table>
           </div>
           <div class="text-center priceMessage">
-            Just invest <span class="price">$500. </span> Its all yours!
+            Just invest
+            <span class="price">${{ cartPrice.totalCartPrice }}. </span> Its all
+            yours!
           </div>
 
           <v-divider></v-divider>
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" outlined @click="priceDialog = false">
+            <v-btn
+              color="primary"
+              outlined
+              @click="
+                priceDialog = false;
+                penguin = false;
+                horse = false;
+                penguinQty = 0;
+                horseQty = 0;
+              "
+            >
               I accept
             </v-btn>
           </v-card-actions>
@@ -164,6 +203,7 @@
 <script>
 import Logo from "~/components/Logo.vue";
 import VuetifyLogo from "~/components/VuetifyLogo.vue";
+import { mapState } from "vuex";
 
 export default {
   layout: "layout_index",
@@ -186,6 +226,12 @@ export default {
     };
   },
   methods: {
+    getCartPrice() {
+      this.$store.dispatch("price/getCartPrice", {
+        penguinUnits: this.penguinQty,
+        horseUnits: this.horseQty
+      });
+    },
     getPenguinData() {
       this.penguinCartons = Math.floor(this.penguinQty / 20);
       this.penguinUnits = this.penguinQty % 20;
@@ -194,6 +240,11 @@ export default {
       this.horseCartons = Math.floor(this.horseQty / 5);
       this.horseUnits = this.horseQty % 5;
     }
+  },
+  computed: {
+    ...mapState({
+      cartPrice: state => state.price.cartPrice
+    })
   }
 };
 </script>

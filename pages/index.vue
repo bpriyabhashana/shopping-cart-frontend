@@ -89,7 +89,6 @@
         </v-col>
       </v-row>
     </v-col>
-    {{ tableItems[0].productPriceMap }}
   </v-row>
 </template>
 
