@@ -55,8 +55,8 @@ export default {
         datasets: [
           {
             label: "Penguin-ears",
-            borderColor: "#4F5CC9",
-            pointBackgroundColor: "#4F5CC9",
+            borderColor: "#191B73",
+            pointBackgroundColor: "#191B73",
             fill: false,
             data: this.penguinears,
             borderWidth: 2,
@@ -64,8 +64,8 @@ export default {
           },
           {
             label: "Horseshoe",
-            borderColor: "#4FC971",
-            pointBackgroundColor: "#4FC971",
+            borderColor: "#FF0707",
+            pointBackgroundColor: "#FF0707",
             fill: false,
             data: this.horseshoe,
             borderWidth: 2,
